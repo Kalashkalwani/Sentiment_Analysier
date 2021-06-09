@@ -1,0 +1,51 @@
+
+{% extends 'layout.html' %}
+
+{% block home %}
+
+
+ <!-- HOME -->
+ <section id="home">
+    <div class="overlay"></div>
+      <div class="container">
+           <div class="row">
+
+                <div class="col-md-12 col-sm-12">
+                     <div class="home-info">
+                        <h1>History <br> Latest text Anaylsis and their results</h1>
+                        <div class="container" style="width: auto;">
+                        <table class="table" style="color: antiquewhite;">
+                            <thead>
+                              <tr>
+                                <th scope="col">S_No</th>
+                                <th scope="col">Text</th>
+                                <th scope="col">Resultant Class</th>
+                                <th scope="col">Confidence</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                {% for p in past %}
+                              <tr>
+                                <th scope="row">{{p.id}}</th>
+                                <td>{{p.text}}</td>
+                                {% if p.result == 1 %}
+                                <td>Positive</td>
+                                {% else %}
+                                <td>Negative</td>
+                                {% endif %}
+                                <td>{{p.Confidence}}</td>
+                              </tr>
+                             {% endfor %}
+                            </tbody>
+                          </table>
+                        </div>
+
+                     </div>
+                </div>
+
+           </div>
+      </div>
+ </section>
+
+
+{% endblock %}
