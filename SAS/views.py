@@ -15,17 +15,14 @@ def index(request):
         con = float(confidence[0][result] * 100 )
         c = "{:.2f}".format(con)
 
-        h = History(text=text,result = result[0],Confidence = con)
-        h.save()
-        audio = "Your text belongs to {} class with confidence of {} percentage".format(classes[result[0]],c)
         params={'result':classes[result[0]],"confidence":c,'d':1,'text':text}
     return render(request, 'index.html',params)
 
 
 def history(request):
-    past = History.objects.all().order_by('-id')[:10]
-    params = {"past":reversed(past)}
-    return render(request, 'history.html',params)
+    # past = History.objects.all().order_by('-id')[:10]
+    # params = {"past":reversed(past)}
+    return render(request, 'history.html')
 
 
 
