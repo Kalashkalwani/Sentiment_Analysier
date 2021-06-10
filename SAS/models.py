@@ -5,5 +5,5 @@ from django.db import models
 class History(models.Model):
     text = models.TextField()
     result = models.IntegerField()
-    Confidence = models.FloatField()
+    Confidence = models.DecimalField()
 
